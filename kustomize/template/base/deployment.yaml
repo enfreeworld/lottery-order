@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {APPNAME}-app
+spec:
+  selector:
+    matchLabels:
+      app: {APPNAME}-app
+  template:
+    metadata:
+      labels:
+        app: {APPNAME}-app
+    spec:
+      containers:
+        - name: app
+          image: {APPNAME}:{TAG}
+          ports:
+            - name: http
+              containerPort: {PORT}
+              protocol: TCP
+          volumeMounts:
+            - name: {APPNAME}-config
+              mountPath: /app
+      volumes:
+        - name: "{APPNAME}-config"
+          configMap:
+            name: "{APPNAME}-configmap"

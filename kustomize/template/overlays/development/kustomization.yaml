@@ -1,0 +1,16 @@
+# Adds namespace to all resources.
+namespace: {NAMESPACE}
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+resources:
+  - ../../base/
+
+patchesStrategicMerge:
+  - configmap.yaml
+
+configMapGenerator:
+- name: {APPNAME}-configmap
+  files:
+  - application.yml
