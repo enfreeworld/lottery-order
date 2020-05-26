@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {APPNAME}
+  annotations:
+    traefik.frontend.rule.type: PathPrefixStrip
+  namespace: {NAMESPACE}
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /lottery/{APPNAME}
+        backend:
+          serviceName: {APPNAME}-app
+          servicePort: {PORT}

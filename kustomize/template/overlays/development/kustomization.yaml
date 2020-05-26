@@ -6,6 +6,7 @@ generatorOptions:
 
 resources:
   - ../../base/
+  - traefik.yml
 
 patchesStrategicMerge:
   - configmap.yaml
