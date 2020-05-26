@@ -173,29 +173,6 @@ task "build": {
               mountPath: "/root/.m2"
             }
           ]
-    },
-    {
-      name: "build-image"
-      image: "gcr.io/kaniko-project/executor:v0.14.0"
-      workingDir: "/workspace/src-git"
-      volumeMounts: [
-        {
-          name: "cache-volume"
-          mountPath: "/root/.m2"
-        }
-      ]
-      args: [
-        "--destination=$(outputs.resources.docker-image.url)",
-        "--context=/workspace/src-git",
-        "--oci-layout-path=/workspace/output/docker-image",
-        "--dockerfile=/workspace/src-git/Dockerfile"
-      ],
-      env: [
-        {
-          name: "DOCKER_CONFIG",
-          value: "/workspace/output/.docker"
-        }
-      ]
     }
   ]
 }
