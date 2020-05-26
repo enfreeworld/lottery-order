@@ -17,4 +17,4 @@ git clone <项目url>
   - ``
   kustomize build kustomize/config/overlays/development/ | kubectl create -f -
   ``
-
+ 
