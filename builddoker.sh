@@ -10,6 +10,6 @@ echo $app $tag
 registry=${docke_host}/library
 cp Dockerfile.in Dockerfile.out
 echo $app $tag $docke_host $nexus_host
-docker build -t $app:$tag -f Dockerfile.out .  && \n
-        docker tag $app:$tag $registry/$app:$tag  && \n
+docker build -t $app:$tag -f Dockerfile.out .  && 
+        docker tag $app:$tag $registry/$app:$tag  && 
         docker push $registry/$app:$tag 
