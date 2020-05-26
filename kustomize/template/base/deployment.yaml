@@ -20,7 +20,7 @@ spec:
               protocol: TCP
           volumeMounts:
             - name: {APPNAME}-config
-              mountPath: /app
+              mountPath: /opt/app
       volumes:
         - name: "{APPNAME}-config"
           configMap:
